@@ -1,0 +1,13 @@
+*~
+*.swp
+tags
+CHANGELOG
+LICENCE
+README.markdown
+autoload/
+doc/
+lib/
+nerdtree_plugin/
+plugin/
+syntax/
+plugged/
