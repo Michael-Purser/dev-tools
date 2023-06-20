@@ -1,0 +1,21 @@
+[global_config]
+  title_transmit_bg_color = "#108618"
+[keybindings]
+  move_tab_right = <Shift><Alt>Down
+  move_tab_left = <Shift><Alt>Up
+  edit_tab_title = <Primary><Shift><Alt>t
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    font = Monospace 9
+    scrollback_lines = 10000
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
