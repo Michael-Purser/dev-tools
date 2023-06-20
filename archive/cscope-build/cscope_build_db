@@ -1,0 +1,89 @@
+#!/bin/bash
+
+source "${BASH_SOURCE%/*}"/../../submodules/bash-scripting-utils/execution
+source "${BASH_SOURCE%/*}"/../../submodules/bash-scripting-utils/logging
+source "${BASH_SOURCE%/*}"/../../submodules/bash-scripting-utils/validation
+
+# Variable names
+SRC_LOCATION_ARG_NAME="src_location"
+OUT_LOCATION_ARG_NAME="out_location"
+
+# Usage
+usage()
+{
+    log  ""
+    bold "SYNOPSIS"
+    bold "    $(basename "${0}") [-h] [-n] [-v] <$SRC_LOCATION_ARG_NAME> <$OUT_LOCATION_ARG_NAME>"
+    log ""
+    bold "DESCRIPTION"
+    log  "    Generates a CSCOPE database file for C++ projects."
+    log  "    The generated files (the filelist and the CSCOPE database file) are saved in the specified output location."
+    log  "    More info: http://cscope.sourceforge.net/cscope_vim_tutorial.html (section 11)"
+    log  ""
+    bold "ARGUMENTS"
+    bold "    $SRC_LOCATION_ARG_NAME"
+    log  "        Location of the C++ project source tree directory."
+    log  "        Must be an absolute path."
+    bold "    $OUT_LOCATION_ARG_NAME"
+    log  "        Directory where the generated file list and output database files are saved."
+    log  "        Must be an absolute path."
+    log  ""
+    bold "OPTIONS"
+    bold "    -h"
+    log  "        Display this help message."
+    bold "    -n"
+    log  "        Dry run (do not execute commands)."
+    bold "    -v"
+    log  "        Also print debug information."
+}
+
+# Get options
+while getopts 'hnv' flag; do
+    case "${flag}" in
+        h)
+            usage && exit;;
+        n)
+            warn "Running script in dry-run mode" && set_dry_run;;
+        v)
+            set_logging_debug;;
+        *)
+            error "Unrecognized option" && exit;;
+    esac
+done
+
+# Get arguments and trim trailing forward slashes
+SRC_LOCATION=${@:$OPTIND:1}
+SRC_LOCATION="${SRC_LOCATION%/}"
+check_argument_not_empty "${SRC_LOCATION_ARG_NAME}" "${SRC_LOCATION}"
+check_is_absolute_path "${SRC_LOCATION}"
+check_dir_exists "${SRC_LOCATION}"
+
+OUT_LOCATION=${@:$OPTIND+1:1}
+OUT_LOCATION="${OUT_LOCATION%/}"
+check_argument_not_empty "${OUT_LOCATION_ARG_NAME}" "${OUT_LOCATION}"
+check_is_absolute_path "${OUT_LOCATION}"
+check_dir_exists "${OUT_LOCATION}"
+
+CSCOPE_FILES_NAME="cscope.files"
+CSCOPE_OUT_NAME="cscope.out"
+CSCOPE_FILES_PATH="${OUT_LOCATION}/${CSCOPE_FILES_NAME}"
+CSCOPE_OUT_PATH="${OUT_LOCATION}/${CSCOPE_OUT_NAME}"
+
+# Empty contents of possible previous CSCOPE files
+if [ -f "${CSCOPE_FILES_PATH}" ]; then
+    info "Emptying contents of previous CSCOPE files list"
+    execute "> '${CSCOPE_FILES_PATH}'"
+fi
+
+# Populate CSCOPE files
+info "Populating CSCOPE files list"
+execute "find ${SRC_LOCATION} -name '*.hpp' > '${CSCOPE_FILES_PATH}'"
+execute "find '${SRC_LOCATION}' -name '*.cpp' > '${CSCOPE_FILES_PATH}'"
+
+# Generate CSCOPE database
+info "Generating CSCOPE database"i
+execute "cscope -Rb '${CSCOPE_FILES_PATH}'"
+execute "mv ${CSCOPE_OUT_NAME} ${OUT_LOCATION}"
+info "Database file generated at: ${CSCOPE_OUT_PATH}"
+
+success
