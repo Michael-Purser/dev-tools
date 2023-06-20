@@ -1,0 +1,36 @@
+# Set Java home
+JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+
+# Add ant bin/ directory to PATH
+ANT_HOME="/home/michael/dev/ant"
+PATH="$PATH:$ANT_HOME/bin/"
+
+# Set CSCOPE DB path if file exists
+if [ -f ~/dev_tools/cscope-build/cscope.out ]; then
+    CSCOPE_DB="/home/michael/dev_tools/cscope-build/cscope.out"
+fi
+
+# Function to start tmux with current directory name as session name & with history of current shell session
+tmuxx() {
+    NAME=$PWD:t:gs/./_/
+
+    if [[ "$1" = "-h" || "$1" = "--help" ]]; then
+        echo "tmuxx [-n] [name|name-<digit>]"
+        echo "  -n  - make new session, with current directory as name, attached to existing one with suffix -<digit>"
+        echo " Example: tmux -n am-sdm  - will create new am-sdm-1"
+        return
+    elif [[ "$1" = "-n" ]]; then
+        if tmux ls | grep -wq $NAME:; then
+            N=1
+            if [[ -n "$2" ]]; then
+                NAME="$2"
+            fi
+            tmux ls | grep -wq "$NAME-[0-9]*" &&
+                N=$(( 1 + $(tmux ls | grep -wo "$NAME-[0-9]*" | sort -n | grep -o '[0-9]*$') ))
+            exec tmux new -As $NAME-$N -t $NAME
+        fi
+    elif [[ "$1" =~ ".*-[0-9]$" ]]; then
+        exec tmux new -As $1 -t ${1%-[0-9]*}
+    fi
+    exec tmux new -As $(echo ${1:-$PWD} | sed 's,.*/,,;s/\./_/g')
+}

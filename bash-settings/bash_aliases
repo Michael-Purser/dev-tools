@@ -1,0 +1,19 @@
+# Aliases to move around
+alias dsrc="cd /home/michael/dev/dune"
+alias gsrc="cd /home/michael/Documents/personal/small-games"
+
+# Git aliases
+alias gd="git diff"
+alias gs="git status"
+
+# Grep aliases
+alias cfind='grep -R -i "$@"' # Search something in files
+alias ffind='find . | grep "$@"' # Search for file names
+alias srcfind='grep "$@" -rni --color --include={*.hpp,*.cpp}'
+
+# Mounting and unmounting the NAS
+alias mnas="~/tools/evologics-tools/NAS/mount_nas.sh"
+alias unas="~/tools/evologics-tools/NAS/mount_nas.sh -u"
+
+# Generate/Update CSCOPE database
+alias csc="~/tools/cscope-build/cscope_build_db /home/michael/dev/dune/ /home/michael/tools/cscope-build"
