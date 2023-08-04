@@ -15,9 +15,6 @@ call plug#begin()
 " NERDTree file explorer
 Plug 'preservim/NERDTree'
 
-" CTRLP fuzzy search plugin
-Plug 'ctrlpvim/ctrlp.vim'
-
 " Lighline (better statusline)
 Plug 'itchyny/lightline.vim'
 
@@ -55,17 +52,15 @@ Plug 'tpope/vim-fugitive'
 " Theme Vim-Code-Dark
 Plug 'tomasiser/vim-code-dark'
 
+" Fuzzy-searching (with post install hook to get latest version)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 call plug#end()
 
 " ---------------------
 " Settings for NERDTree
 " ---------------------
 map <F2> :NERDTreeToggle<CR>
-
-" ---------------------
-" Settings for ctrlpvim
-" ---------------------
-let g:ctrlp_map = '<c-p>'
 
 " -----------------------
 " Settings for indentLine
@@ -103,6 +98,13 @@ map <C-m> :MarkdownPreview<CR>
 " -------------------------
 map <F4> :Git blame<CR>
 
+" ----------------
+" Settings for FZF
+" ----------------
+"  Bind to CTRL-P
+map <C-p> :FZF<CR>
+" Set layout to be a window anchored to th ebottom of the screen
+let g:fzf_layout = { 'window': { 'width': 1.0, 'height': 0.4, 'relative': v:true, 'yoffset': 1.0 } }
 
 " ---------------
 " Set colorscheme
