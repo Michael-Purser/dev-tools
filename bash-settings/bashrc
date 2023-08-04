@@ -123,3 +123,8 @@ if ! shopt -oq posix; then
   fi
 fi
 . "$HOME/.cargo/env"
+
+# MANUAL ADDITION: enable fzf keybindings & fuzze auto-completion
+source /usr/share/doc/fzf/examples/key-bindings.bash
+source /usr/share/doc/fzf/examples/completion.bash
+export FZF_TMUX_OPTS='-d40%'
