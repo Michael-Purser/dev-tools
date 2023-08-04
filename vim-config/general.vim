@@ -1,6 +1,9 @@
 " Add line numbers
 set number
 
+" Set scroll offset
+set scrolloff=20
+
 " Add a column at 120 characters to limit line length
 set colorcolumn=120
 
