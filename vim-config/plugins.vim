@@ -55,6 +55,9 @@ Plug 'tomasiser/vim-code-dark'
 " Fuzzy-searching (with post install hook to get latest version)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
+" Icons for NERDTree
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 " ---------------------
@@ -69,6 +72,7 @@ let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:vim_json_conceal=0
 let g:markdown_syntax_conceal=0
+let g:indentLine_fileTypeExclude = ["nerdtree"] " Don't show indent lines in NERDTree
 
 " --------------------------
 " Settings for YouCompleteMe
