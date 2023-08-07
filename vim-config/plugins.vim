@@ -64,7 +64,7 @@ call plug#end()
 " ---------------------
 " Settings for NERDTree
 " ---------------------
-map <F2> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle %<CR>
 
 " ----------------------
 " Settings for lightline
