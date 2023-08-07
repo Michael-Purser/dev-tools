@@ -15,8 +15,9 @@ call plug#begin()
 " NERDTree file explorer
 Plug 'preservim/NERDTree'
 
-" Lighline (better statusline)
+" Lighline (better statusline) & gitbranch (show git branch in statusline)
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 
 " Show indents
 Plug 'Yggdroot/indentLine'
@@ -64,6 +65,23 @@ call plug#end()
 " Settings for NERDTree
 " ---------------------
 map <F2> :NERDTreeToggle<CR>
+
+" ----------------------
+" Settings for lightline
+" ----------------------
+"  Turn off mode in (n)vim, because lightline does that now
+set noshowmode
+" lightline settings
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 " -----------------------
 " Settings for indentLine
