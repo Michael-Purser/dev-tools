@@ -123,8 +123,10 @@ map <F4> :Git blame<CR>
 " ----------------
 " Settings for FZF
 " ----------------
-"  Bind to CTRL-P
-map <C-p> :FZF<CR>
+"  Bind to CTRL-T
+"  (we do not use CTRL-P because this key binding triggers something else in
+"  docker containers)
+map <C-t> :FZF<CR>
 " Set layout to be a window anchored to th ebottom of the screen
 let g:fzf_layout = { 'window': { 'width': 1.0, 'height': 0.4, 'relative': v:true, 'yoffset': 1.0 } }
 
