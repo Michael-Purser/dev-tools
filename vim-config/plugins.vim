@@ -64,7 +64,8 @@ call plug#end()
 " ---------------------
 " Settings for NERDTree
 " ---------------------
-map <F2> :NERDTreeToggle %<CR>
+map <F2> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle %<CR>
 
 " ----------------------
 " Settings for lightline
@@ -108,7 +109,7 @@ let g:coc_default_semantic_highlight_groups = 1
 " ---------------------------
 " Settings for vim-autoformat
 " ---------------------------
-noremap <F3> :Autoformat<CR>
+noremap <F5> :Autoformat<CR>
 
 " -----------------------------
 " Settings for markdown-preview
