@@ -105,6 +105,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 " ----------------
 let g:coc_disable_startup_warning = 1
 let g:coc_default_semantic_highlight_groups = 1
+map gd <Plug>(coc-definition)
 
 " ---------------------------
 " Settings for vim-autoformat
