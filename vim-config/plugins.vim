@@ -110,7 +110,7 @@ map gd <Plug>(coc-definition)
 " ---------------------------
 " Settings for vim-autoformat
 " ---------------------------
-noremap <F5> :Autoformat<CR>
+noremap <F6> :Autoformat<CR>
 
 " -----------------------------
 " Settings for markdown-preview
