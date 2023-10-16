@@ -45,7 +45,17 @@ endif
 Plug 'vim-autoformat/vim-autoformat'
 
 " Markdown preview plugin
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release --locked
+    else
+      !cargo build --release --locked --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
 " Git plugin
 Plug 'tpope/vim-fugitive'
@@ -107,15 +117,15 @@ let g:coc_disable_startup_warning = 1
 let g:coc_default_semantic_highlight_groups = 1
 map gd <Plug>(coc-definition)
 
+" ----------------------------------
+" Settings for vim-markdown-composer
+" ----------------------------------
+let g:markdown_composer_browser = 'firefox'
+
 " ---------------------------
 " Settings for vim-autoformat
 " ---------------------------
 noremap <F6> :Autoformat<CR>
-
-" -----------------------------
-" Settings for markdown-preview
-" -----------------------------
-map <C-m> :MarkdownPreview<CR>
 
 " -------------------------
 " Settings for vim-fugitive
