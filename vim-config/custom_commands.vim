@@ -22,9 +22,16 @@ function! LoadSession()
   endif
 endfunction
 
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfunction
+
 " --------
 " Commands
 " --------
 command SaveSession call MakeSession()
 command RestoreSession call LoadSession()
+command TrimWhitespace call TrimWhitespace()
 
