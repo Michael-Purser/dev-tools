@@ -8,3 +8,5 @@ autocmd BufRead,BufNewFile *.hpp set shiftwidth=2 tabstop=2 expandtab autoindent
 autocmd BufRead,BufNewFile *.h set shiftwidth=2 tabstop=2 expandtab autoindent
 autocmd BufRead,BufNewFile *.yaml set shiftwidth=2 tabstop=2 expandtab autoindent
 
+" Add removing of trailing whitespace before writing to file
+autocmd BufWritePre * call TrimWhitespace()
