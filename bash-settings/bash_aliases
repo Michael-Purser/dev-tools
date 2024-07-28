@@ -1,6 +1,5 @@
 # Aliases to move around
 alias dsrc="cd /home/michael/dev/dune"
-alias gsrc="cd /home/michael/Documents/personal/small-games"
 
 # Git aliases
 alias gd="git diff"
