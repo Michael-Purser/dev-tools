@@ -12,8 +12,10 @@ alias ffind='find . | grep "$@"' # Search for file names
 alias srcfind='grep "$@" -rni --color --include={*.hpp,*.cpp}'
 
 # Mounting and unmounting the NAS
-alias mnas="~/tools/evologics-tools/NAS/mount_nas.sh"
-alias unas="~/tools/evologics-tools/NAS/mount_nas.sh -u"
+alias mnas-evo="~/tools/dev-tools/scripts/mount_nas.sh 10.0.0.3 /mnt/nas-evo 'home data'"
+alias unas-evo="~/tools/dev-tools/scripts/mount_nas.sh 10.0.0.3 /mnt/nas-evo 'home data' true"
+alias mnas-home="~/tools/dev-tools/scripts/mount_nas.sh 192.168.0.122 /mnt/nas-home 'shared'"
+alias unas-home="~/tools/dev-tools/scripts/mount_nas.sh 192.168.0.122 /mnt/nas-home 'shared' true"
 
 # Generate/Update CSCOPE database
 alias csc="~/tools/cscope-build/cscope_build_db /home/michael/dev/dune/ /home/michael/tools/cscope-build"
