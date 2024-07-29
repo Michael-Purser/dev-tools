@@ -1,8 +1,9 @@
 # Set Java home
-JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java"
+JAVA_HOME="/home/michael/tools/openjdk-8/"
+PATH="$PATH:$JAVA_HOME/bin/"
 
 # Add ant bin/ directory to PATH
-ANT_HOME="/home/michael/dev/ant"
+ANT_HOME="/home/michael/tools/ant"
 PATH="$PATH:$ANT_HOME/bin/"
 
 # Set CSCOPE DB path if file exists
