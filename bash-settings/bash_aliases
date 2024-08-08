@@ -16,5 +16,8 @@ alias unas-evo="~/tools/dev-tools/scripts/mount_nas.sh 10.10.0.3 /mnt/nas-evo 'h
 alias mnas-home="~/tools/dev-tools/scripts/mount_nas.sh 192.168.0.122 /mnt/nas-home 'shared'"
 alias unas-home="~/tools/dev-tools/scripts/mount_nas.sh 192.168.0.122 /mnt/nas-home 'shared' true"
 
+# Facilitate removing RSA key
+alias rmkey='ssh-keygen -f "/home/michael/.ssh/known_hosts" -R "$@"'
+
 # Generate/Update CSCOPE database
 alias csc="~/tools/cscope-build/cscope_build_db /home/michael/dev/dune/ /home/michael/tools/cscope-build"
