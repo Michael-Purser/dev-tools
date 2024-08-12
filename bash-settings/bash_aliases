@@ -6,9 +6,9 @@ alias gd="git diff"
 alias gs="git status"
 
 # Grep aliases
-alias cfind='grep -R -i "$@"' # Search something in files
-alias ffind='find . | grep "$@"' # Search for file names
-alias srcfind='grep "$@" -rni --color --include={*.hpp,*.cpp}'
+alias cfind='grep -R -i "$@" --color'                          # Search something in files
+alias ffind='find . | grep "$@" --color'                       # Search for file names
+alias srcfind='grep "$@" -rni --color --include={*.hpp,*.cpp}' # Search specifically in C++ files
 
 # Mounting and unmounting the NAS
 alias mnas-evo="~/tools/dev-tools/scripts/mount_nas.sh 10.10.0.3 /mnt/nas-evo 'home data'"
