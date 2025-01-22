@@ -82,7 +82,7 @@ $ sudo apt install -y nodejs
 
 In neovim, install the necessary CoC plugins by running:
 ```
-:CocInstall coc-json coc-clangd
+:CocInstall coc-json coc-clangd coc-pyright
 ```
 
 Finally, create a symlink to the CoC configuration file in this repository:
