@@ -22,3 +22,6 @@ alias rmkey='ssh-keygen -f "/home/michael/.ssh/known_hosts" -R "$@"'
 
 # Generate/Update CSCOPE database
 alias csc="~/tools/cscope-build/cscope_build_db /home/michael/dev/dune/ /home/michael/tools/cscope-build"
+
+# Working with DUNE
+alias edit-dune="~/tools/dune-edit/scripts/edit-dune"
