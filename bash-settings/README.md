@@ -11,3 +11,9 @@ For the aliases to work, the following repositories must be present on the syste
 - Under `~/tools/evologics-tools`: https://gitlab.evologics.de/michael.purser/evologics-tools
 - Under `~/dev/dune`: https://gitlab.evologics.de/robotics/dune
 - Under `~/.bash/git-aware-prompt`: https://github.com/jimeh/git-aware-prompt
+
+For FZF to work properly, the package `fd-find` must be installed.
+A link must be created from `fd` to `fdfind`, e.g., by running:
+```bash
+sudo ln -s $(which fdfind) /usr/local/bin/fd
+```

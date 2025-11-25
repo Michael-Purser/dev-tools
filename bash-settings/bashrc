@@ -126,4 +126,6 @@ fi
 
 # MANUAL ADDITION: enable fzf keybindings & fuzze auto-completion
 source /usr/share/doc/fzf/examples/key-bindings.bash
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_TMUX_OPTS='-d40%'
