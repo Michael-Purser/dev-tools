@@ -97,6 +97,12 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Profile definition.
+# For custom commands that are best kept separate from the main bashrc file.
+if [ -f ~/.bash_extra ]; then
+    . ~/.bash_extra
+fi
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -104,12 +110,6 @@ alias l='ls -CF'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-fi
-
-# Profile definition.
-# For custom commands that are best kept separate from the main bashrc file.
-if [ -f ~/.bash_extra ]; then
-    . ~/.bash_extra
 fi
 
 # enable programmable completion features (you don't need to enable

@@ -1,6 +1,5 @@
 # Set Java home
 JAVA_HOME="/home/michael/external/openjdk-8/"
-PATH="$PATH:$JAVA_HOME/bin/"
 
 # Add ant bin/ directory to PATH
 ANT_HOME="/home/michael/external/ant"

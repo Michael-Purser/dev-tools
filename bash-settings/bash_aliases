@@ -27,3 +27,6 @@ alias csc="~/tools/cscope-build/cscope_build_db /home/michael/dev/dune/ /home/mi
 
 # Working with DUNE
 alias edit-dune="~/tools/dune-edit/scripts/edit-dune"
+
+# Working with Neptus
+alias setjava8="PATH=$JAVA_HOME/bin:$PATH"
