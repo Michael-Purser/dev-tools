@@ -1,6 +1,7 @@
 # Aliases to move around
 alias dsrc="cd /home/michael/dev/dune"
 alias dhelp="cd /home/michael/tools/dune-helpers/scripts"
+alias dedit="cd /home/michael/tools/dune-edit/scripts"
 
 # Git aliases
 alias gd="git diff"
