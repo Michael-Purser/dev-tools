@@ -35,6 +35,10 @@ tmuxx() {
     exec tmux new -As $(echo ${1:-$PWD} | sed 's,.*/,,;s/\./_/g')
 }
 
+# Add DUNE helpers commands to PATH
+DUNE_HELPERS="/home/michael/tools/dune-helpers/scripts"
+PATH="$PATH:$DUNE_HELPERS"
+
 # Add DUNE edit command to PATH
 DUNE_EDIT="/home/michael/tools/dune-edit/scripts"
 PATH="$PATH:$DUNE_EDIT"
