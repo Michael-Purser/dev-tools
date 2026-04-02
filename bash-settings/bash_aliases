@@ -1,6 +1,5 @@
 # Aliases to move around
 alias dsrc="cd /home/michael/dev/dune"
-alias dhelp="cd /home/michael/tools/dune-helpers/scripts"
 
 # Git aliases
 alias gd="git diff"
@@ -24,9 +23,6 @@ alias rmkey='ssh-keygen -f "/home/michael/.ssh/known_hosts" -R "$@"'
 
 # Generate/Update CSCOPE database
 alias csc="~/tools/cscope-build/cscope_build_db /home/michael/dev/dune/ /home/michael/tools/cscope-build"
-
-# Working with DUNE
-alias edit-dune="~/tools/dune-edit/scripts/edit-dune"
 
 # Working with Neptus
 alias setjava8="PATH=$JAVA_HOME/bin:$PATH"
