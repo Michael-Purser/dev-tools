@@ -42,3 +42,6 @@ PATH="$PATH:$DUNE_HELPERS"
 # Add DUNE edit command to PATH
 DUNE_EDIT="/home/michael/tools/dune-edit/scripts"
 PATH="$PATH:$DUNE_EDIT"
+
+# Add DMACE to PATH
+PATH="$PATH:~/tools/evologics-tools/dmace"
